@@ -2,5 +2,15 @@
   {{ title }}
 </p>
 
+<div *ngFor="let lists of responses">
+  <div *ngFor="let list of lists">
+    {{ list | json }}
 
-{{ results }}
+    <br>
+    Id: {{ list.id }}<br>
+    Created At: {{ list.created_at }}<br>
+    Title: {{ list.title }}<br>
+    Private: {{ list.private }}<br>
+    <br>
+  </div>
+</div>

@@ -10,16 +10,16 @@ import {HttpClient} from '@angular/common/http';
 
 export class ListComponent implements OnInit {
 
-  lists = [];
   title = 'Results title';
-  //
-  // constructor(private http: HttpClient) { }
-  //
-  // ngOnInit(): void {
-  //   this.http.get('https://crossorigin.me/http://mharr171.z%40gmail.com:asdf123@open-todo-4893.herokuapp.com/api/lists/').subscribe(data => {
-  //     this.lists = data['results'];
-  //   });
-  // }
 
-  ngOnInit() {}
+  responses = [];
+
+  readonly ROOT_URL = 'https://crossorigin.me/http://mharr171.z%40gmail.com:asdf123@open-todo-4893.herokuapp.com/api';
+
+  constructor (private http: HttpClient) {}
+  ngOnInit(): void {
+    this.http.get(this.ROOT_URL + '/lists').subscribe(data => {
+      this.responses.push(data);
+    });
+  }
 }
